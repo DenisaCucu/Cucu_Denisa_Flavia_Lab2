@@ -30,8 +30,8 @@ namespace Cucu_Denisa_Flavia_Lab2_1_.Pages.Books
             }
 
             var book = await _context.Book
-                .Include(b => b.Author) // Include Author entity
-                .Include(b => b.Publisher) // Include Publisher entity
+                .Include(b => b.Author) 
+                .Include(b => b.Publisher) 
                 .FirstOrDefaultAsync(m => m.ID == id);
 
             if (book == null)

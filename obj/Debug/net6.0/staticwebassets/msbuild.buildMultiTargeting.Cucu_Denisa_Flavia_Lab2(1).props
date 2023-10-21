@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Cucu_Denisa_Flavia_Lab2(1).props" />
+</Project>

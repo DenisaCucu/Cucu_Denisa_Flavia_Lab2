@@ -24,7 +24,7 @@ namespace Cucu_Denisa_Flavia_Lab2_1_.Pages.Books
         {
             Book = await _context.Book
                 .Include(b => b.Publisher)
-                .Include(b => b.Author) // Include informațiile despre autor
+                .Include(b => b.Author)
                 .ToListAsync();
         }
 
