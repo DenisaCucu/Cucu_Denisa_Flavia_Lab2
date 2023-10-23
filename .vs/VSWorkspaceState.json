@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Models"
+    "\\Data",
+    "\\Models",
+    "\\Pages",
+    "\\Pages\\Authors"
   ],
   "SelectedNode": "\\Cucu_Denisa_Flavia_Lab2(1).sln",
   "PreviewInSolutionExplorer": false

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Cucu_Denisa_Flavia_Lab2_1_.Data;
 using Cucu_Denisa_Flavia_Lab2_1_.Models;
 
-namespace Cucu_Denisa_Flavia_Lab2_1_.Pages.Books
+namespace Cucu_Denisa_Flavia_Lab2_1_.Pages.Categories
 {
     public class DeleteModel : PageModel
     {
@@ -20,44 +20,40 @@ namespace Cucu_Denisa_Flavia_Lab2_1_.Pages.Books
         }
 
         [BindProperty]
-        public Book Book { get; set; } = default!;
+      public Category Category { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Category == null)
             {
                 return NotFound();
             }
 
-            var book = await _context.Book
-                .Include(b => b.Author)
-                .Include(b => b.Publisher)
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var category = await _context.Category.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (book == null)
+            if (category == null)
             {
                 return NotFound();
             }
-            else
+            else 
             {
-                Book = book;
+                Category = category;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Category == null)
             {
                 return NotFound();
             }
+            var category = await _context.Category.FindAsync(id);
 
-            var book = await _context.Book.FindAsync(id);
-
-            if (book != null)
+            if (category != null)
             {
-                Book = book;
-                _context.Book.Remove(Book);
+                Category = category;
+                _context.Category.Remove(Category);
                 await _context.SaveChangesAsync();
             }
 
